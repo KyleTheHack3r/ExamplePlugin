@@ -1,11 +1,10 @@
-#name, main, version and api are required
-name: ExamplePlugin
+name: PRTest
 main: ExamplePlugin\MainClass
 version: 1.0.0
 api: [1.0.0]
 
 load: POSTWORLD
-author: PocketMine Team
+author: PR
 description: Example plugin showing the new API
 website: https://github.com/PocketMine/ExamplePlugin
 commands:
