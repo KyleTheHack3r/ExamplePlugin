@@ -14,23 +14,21 @@ use pocketmine\utils\TextFormat;
 class MainClass extends PluginBase implements Listener{
 
 	public function onLoad(){
-		$this->getLogger()->info(TextFormat::WHITE . "I've been loaded!");
+		$this->getLogger()->info(TextFormat::WHITE . "loaded!");
 	}
 
 	public function onEnable(){
-		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getServer()->getScheduler()->scheduleRepeatingTask(new BroadcastPluginTask($this), 120);
-		$this->getLogger()->info(TextFormat::DARK_GREEN . "I've been enabled!");
+		$this->getLogger()->info(TextFormat::DARK_GREEN . "Enabled successfully.");
     }
 
 	public function onDisable(){
-		$this->getLogger()->info(TextFormat::DARK_RED . "I've been disabled!");
+		$this->getLogger()->info(TextFormat::DARK_RED . "disabled!");
 	}
 
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 		switch($command->getName()){
-			case "example":
-				$sender->sendMessage("Hello ".$sender->getName()."!");
+			case "pr":
+				$sender->sendMessage("<PR> Version 1.0.0 by @KyleTheHack3r");
 				return true;
 			default:
 				return false;
@@ -44,6 +42,6 @@ class MainClass extends PluginBase implements Listener{
 	 * @ignoreCancelled false
 	 */
 	public function onSpawn(PlayerRespawnEvent $event){
-		Server::getInstance()->broadcastMessage($event->getPlayer()->getDisplayName() . " has just spawned!");
+		Server::getInstance()->broadcastMessage($event->getPlayer()->getDisplayName() . " has just spawned.");
 	}
 }
